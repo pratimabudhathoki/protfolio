@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:protfolio_wesite_app/landingpage/aboutmepage.dart';
+import 'package:protfolio_wesite_app/landingpage/contactpage.dart';
+import 'package:protfolio_wesite_app/landingpage/works.dart';
 
 class uiPage extends StatefulWidget {
   const uiPage({super.key});
@@ -111,13 +113,13 @@ class _uiPageState extends State<uiPage> {
           ]),
       body: count == 0
           ? Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 100, left: 100),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(top: 70, left: 60),
@@ -137,7 +139,7 @@ class _uiPageState extends State<uiPage> {
                           child: Container(
                             height: 50,
                             width: 500,
-                            child: const Text("WELCOME TO MY PROTFOLIO!",
+                            child: const Text("WELCOME TO MY PORTFOLIO!",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FontStyle.normal,
@@ -150,7 +152,7 @@ class _uiPageState extends State<uiPage> {
                           child: Container(
                             width: 400,
                             child: const Text(
-                              "By profession, I'm a Software Developer carring experience on Mobile App Development(Flutter).Bachelor in Computer Application tech enthusiast.",
+                              "By profession, I'm a Software Developer caring experience on Mobile App Development(Flutter).Bachelor in Computer Application tech enthusiast.",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.normal,
@@ -178,8 +180,8 @@ class _uiPageState extends State<uiPage> {
           : count == 1
               ? AboutPage()
               : count == 2
-                  ? Text("Woek pagee")
-                  : Text("conta"),
+                  ? WorkPage()
+                  : ContactPage(),
     );
   }
 }
