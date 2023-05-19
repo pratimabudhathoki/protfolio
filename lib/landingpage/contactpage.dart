@@ -14,10 +14,13 @@ class _ContactPageState extends State<ContactPage> {
   final _address = TextEditingController();
   final _subject = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
   final Uri _url = Uri.parse('https://www.facebook.com/pratima.budhathoki.18');
-  final Uri _instaurl = Uri.parse('https://www.instagram.com/ipeek_7/');
+  final Uri _instaurl =
+      Uri.parse('https://instagram.com/ipeek_7?igshid=Y2M0YTlkZGNmOQ==');
   final Uri _linkedInuri =
       Uri.parse('https://np.linkedin.com/in/pratima-budhathoki-3a7493248');
+  final Uri _githuburi = Uri.parse('https://github.com/pratimabudhathoki');
 
   Future<void> _launchUrl() async {
     if (!await launchUrl(_url)) {
@@ -32,7 +35,15 @@ class _ContactPageState extends State<ContactPage> {
   }
 
   Future<void> _launchLinkedin() async {
-    if (!await launchUrl(_linkedInuri)) {}
+    if (!await launchUrl(_linkedInuri)) {
+      throw Exception('Could not launch $_githuburi');
+    }
+  }
+
+  Future<void> _launchgithub() async {
+    if (!await launchUrl(_githuburi)) {
+      throw Exception('Could not launch $_githuburi');
+    }
   }
 
   @override
@@ -210,6 +221,20 @@ class _ContactPageState extends State<ContactPage> {
                                     width: 40,
                                     child:
                                         Image.asset('assets/linked image.png'),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    _launchgithub();
+                                  },
+                                  child: Container(
+                                    height: 35,
+                                    width: 45,
+                                    child:
+                                        Image.asset('assets/GitHub-Mark.png'),
                                   ),
                                 ),
                               )
